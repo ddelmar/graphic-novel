@@ -39,6 +39,8 @@ if ($user) {
 // This call will always work since we are fetching public data.
 $naitik = $facebook->api('/naitik');
 
+$user_profile_hometown = $user_profile['hometown'];
+
 ?>
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
@@ -79,6 +81,7 @@ $naitik = $facebook->api('/naitik');
     <?php if ($user): ?>
       <h3>You</h3>
       <img src="https://graph.facebook.com/<?php echo $user; ?>/picture">
+<p>My name is <?php echo $user_profile['name'] ?> and I'm from <?php echo $user_profile_hometown['name'] ?></p>
 
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
